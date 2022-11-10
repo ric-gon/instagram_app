@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_app/profile.dart';
+import 'package:instagram_app/store.dart';
 import 'home_page.dart';
 import 'search_page.dart';
 import 'reels_page.dart';
@@ -41,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPage = 0;
-  final mainPages = [HomePage(),SearchPage(),ReelsPage()];
+  final mainPages = [HomePage(), SearchPage(), ReelsPage(), Store(), Profile()];
 
   @override
   Widget build(BuildContext context) {

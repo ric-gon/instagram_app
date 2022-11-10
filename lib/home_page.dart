@@ -9,21 +9,15 @@ class HomePage extends StatefulWidget {
 
 userCreateStory(int index) {
   if (index == 0) {
-    return SizedBox(
-      height: 25,
-      child: FloatingActionButton(
-        backgroundColor: Colors.white,
-        onPressed: () {},
-        child: const Icon(
-          Icons.add_circle,
-          color: Colors.blue,
-        ),
+    return RawMaterialButton(
+      fillColor: Colors.white,
+      shape: const CircleBorder(),
+      constraints: const BoxConstraints(minWidth: 23, maxWidth: 23),
+      onPressed: () {},
+      child: const Icon(
+        Icons.add_circle,
+        color: Colors.blue,
       ),
-      //child: ElevatedButton.icon(icon: const Icon(Icons.add_circle),onPressed: () {}, label: const Text(""),),
-      /* IconButton(
-        icon: const Icon(Icons.add_circle, color: Colors.blue,),
-        onPressed: () {},
-      ), */
     );
   }
   return const SizedBox(
@@ -99,8 +93,9 @@ class _HomePageState extends State<HomePage> {
                     ...List.generate(
                       8,
                       (index) => Container(
+                        height: 110,
                         padding: const EdgeInsets.all(10),
-                        child: Column(
+                        child: Stack(
                           children: [
                             CircleAvatar(
                               radius: 35,
@@ -113,16 +108,25 @@ class _HomePageState extends State<HomePage> {
                                 backgroundImage: AssetImage(
                                   profileImages[index],
                                 ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 70,
+                              child: Align(
+                                alignment: const Alignment(2.2, 0.6),
                                 child: userCreateStory(index),
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            const Text(
-                              "Profile Name",
-                              style: TextStyle(
-                                  fontSize: 12, color: Colors.black87),
+                            const Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(
+                                "Profile Name",
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.black87),
+                              ),
                             ),
                           ],
                         ),
