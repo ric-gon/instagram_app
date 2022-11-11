@@ -41,7 +41,7 @@ class _ReelsPageState extends State<ReelsPage> {
         child: Text(
           'Reels',
           style: TextStyle(
-            decorationThickness: 2,
+            fontWeight: FontWeight.bold,
             fontSize: 20,
             color: Colors.white,
           ),
@@ -53,46 +53,21 @@ class _ReelsPageState extends State<ReelsPage> {
       );
     }
   }
-/*
-  final _controller = PageController();
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Setup the listener.
-    _controller.addListener(
-      () {
-        if (_controller.position.atEdge) {
-          bool isTop = _controller.position.pixels == 0;
-          if (isTop) {
-            setState(() {
-              numberOfReels = 2;
-            });
-          }
-          print("listener $numberOfReels");
-        }
-      },
-    );
-  }*/
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        //controller: _controller,
         scrollDirection: Axis.vertical,
         onPageChanged: (index) {
           setState(() {
             index == 0 ? numberOfReels = 2 : numberOfReels = index + 2;
-            print("$index and $numberOfReels");
           });
         },
         children: <Widget>[
           ...List.generate(
             numberOfReels,
             (index) => Container(
-              //color: Colors.green,
               padding: const EdgeInsets.fromLTRB(10, 25, 10, 15),
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -123,7 +98,7 @@ class _ReelsPageState extends State<ReelsPage> {
                           color: Colors.white,
                           size: 35,
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 5),
                         const Text(
                           '1,059',
                           style: TextStyle(
@@ -131,13 +106,13 @@ class _ReelsPageState extends State<ReelsPage> {
                             color: Colors.white,
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 20),
                         const Icon(
                           Icons.messenger_outline_sharp,
                           color: Colors.white,
                           size: 35,
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 5),
                         const Text(
                           '18',
                           style: TextStyle(
@@ -145,7 +120,7 @@ class _ReelsPageState extends State<ReelsPage> {
                             color: Colors.white,
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 20),
                         const Icon(
                           Icons.near_me_outlined,
                           color: Colors.white,
@@ -153,21 +128,15 @@ class _ReelsPageState extends State<ReelsPage> {
                         ),
                         const SizedBox(height: 20),
                         const Icon(
-                          Icons.density_medium_rounded,
+                          Icons.more_vert_outlined,
                           color: Colors.white,
                           size: 35,
                         ),
                         const SizedBox(height: 20),
                         CircleAvatar(
-                          radius: 14,
+                          radius: 20,
                           backgroundImage: AssetImage(
-                            profileImages[index],
-                          ),
-                          child: CircleAvatar(
-                            radius: 12,
-                            backgroundImage: AssetImage(
-                              profileImages[math.Random().nextInt(8)],
-                            ),
+                            profileImages[math.Random().nextInt(8)],
                           ),
                         ),
                       ],
@@ -184,19 +153,14 @@ class _ReelsPageState extends State<ReelsPage> {
                             CircleAvatar(
                               radius: 14,
                               backgroundImage: AssetImage(
-                                profileImages[index],
-                              ),
-                              child: CircleAvatar(
-                                radius: 12,
-                                backgroundImage: AssetImage(
-                                  profileImages[math.Random().nextInt(8)],
-                                ),
+                                profileImages[math.Random().nextInt(8)],
                               ),
                             ),
                             const Text(
-                              ' User ',
+                              ' Profile Name ',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
                                 color: Colors.white,
                               ),
                             ),
@@ -222,16 +186,19 @@ class _ReelsPageState extends State<ReelsPage> {
                           ],
                         ),
                         const Text(
-                          "Follow",
+                          "This is the reel description.",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Colors.white,
                           ),
                         ),
+                        const SizedBox(
+                          height: 5,
+                        ),
                         const Text(
-                          "Audio",
+                          "Sometimes there here is music...",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Colors.white,
                           ),
                         ),

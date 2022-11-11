@@ -50,7 +50,6 @@ class _SearchPageState extends State<SearchPage> {
               gridTotalItems += 6;
             });
           }
-          //print(gridTotalItems);
         }
       },
     );
