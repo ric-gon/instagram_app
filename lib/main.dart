@@ -5,8 +5,6 @@ import 'home_page.dart';
 import 'search_page.dart';
 import 'reels_page.dart';
 
-//Create Story button, hide text
-
 void main() {
   runApp(MyApp());
 }
@@ -49,7 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: mainPages[currentPage],
-      //body: currentPage == 0 ? HomePage(): SearchPage(),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: [

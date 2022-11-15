@@ -32,11 +32,10 @@ class _ProfileState extends State<Profile> {
     "images/post8.jpg",
   ];
 
-  //TabController _tabBarController = TabController(length: 3, vsync: ());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Main App Bar
       appBar: AppBar(
         title: const Text(
           'usuario',
@@ -59,6 +58,7 @@ class _ProfileState extends State<Profile> {
         child: Column(
           children: [
             const SizedBox(height: 10),
+            // The User Information
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -73,29 +73,72 @@ class _ProfileState extends State<Profile> {
                     const SizedBox(
                       height: 5,
                     ),
-                    const Text('Name LastName'),
+                    const Text(
+                      'Name LastName',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
                   ],
                 ),
                 Column(
                   children: const [
-                    Text('10'),
-                    Text('post'),
+                    Text(
+                      '10',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Text(
+                      'post',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
                   ],
                 ),
                 Column(
                   children: const [
-                    Text('51'),
-                    Text('Follwers'),
+                    Text(
+                      '51',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Text(
+                      'Follwers',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
                   ],
                 ),
                 Column(
                   children: const [
-                    Text('101'),
-                    Text('Following'),
+                    Text(
+                      '101',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Text(
+                      'Following',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
+            //The 'Edit Profile' Button
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -115,11 +158,15 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
+            // Discover People
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  '  Discover pople',
+                  '  Discover people',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 TextButton(
                   onPressed: () {},
@@ -192,12 +239,13 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
+            //Pictures Grids
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const SizedBox(height: 20.0),
                 DefaultTabController(
-                  length: 2, // length of tabs
+                  length: 2,
                   initialIndex: 0,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -221,7 +269,7 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                       Container(
-                        height: 400, //height of TabBarView
+                        height: 400,
                         decoration: const BoxDecoration(
                           border: Border(
                             top: BorderSide(color: Colors.grey, width: 0.5),

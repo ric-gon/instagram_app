@@ -211,27 +211,6 @@ class _ReelsPageState extends State<ReelsPage> {
           )
         ],
       ),
-
-      /*body: CustomScrollView(
-        controller: _controller,
-        slivers: [
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: Image.asset(
-                    posts[math.Random().nextInt(8)],
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
-              childCount: numberOfReels,
-            ),
-          ),
-          //SliverFillRemaining(child: Image.asset(posts[0],fit: BoxFit.cover,),)
-        ],
-      ),*/
     );
   }
 }

@@ -61,6 +61,7 @@ class _SearchPageState extends State<SearchPage> {
       body: CustomScrollView(
         controller: _controller,
         slivers: [
+          //Top Search Bar
           SliverAppBar(
             title: TextFormField(
               decoration: InputDecoration(
@@ -76,6 +77,7 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
           ),
+          //Infinite Generator
           SliverGrid(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
@@ -93,12 +95,6 @@ class _SearchPageState extends State<SearchPage> {
               childAspectRatio: 0.8,
             ),
           ),
-          /*Container(
-            height: 100,
-            width: 50,
-            color: Colors.green,
-            child: const Text("data"),
-          ),*/
         ],
       ),
     );

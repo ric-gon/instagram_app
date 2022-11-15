@@ -30,39 +30,46 @@ class _StoreState extends State<Store> {
     "images/post9.jpg",
   ];
 
-  int gridTotalItems = 18;
-  final bool _searchBarIs = true;
+  int gridTotalItems = 16;
   final _controller = ScrollController();
   final sliverAppBarKey = const Key("searchBarIs");
+  final appBarKey = const Key("appBarKey");
+  ValueNotifier value = ValueNotifier(true);
 
+  //This function move the Search Bar to the Main App Bar
   Widget dinamicTittle<bool>() {
-    if (_searchBarIs) {
-      return const Text(
-        'Shop',
-        style: TextStyle(color: Colors.black),
-      );
-    } else {
-      return TextFormField(
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.search),
-          hintText: "Search shops",
-          contentPadding: const EdgeInsets.all(10),
-          filled: true,
-          fillColor: const Color.fromRGBO(220, 220, 220, 1),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-      );
-    }
+    return ValueListenableBuilder(
+      valueListenable: value,
+      builder: ((context, value, builder) {
+        if (value == true) {
+          return const Text(
+            'Shop',
+            style: TextStyle(color: Colors.black),
+          );
+        } else {
+          return TextFormField(
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.search),
+              hintText: "Search shops",
+              contentPadding: const EdgeInsets.all(10),
+              filled: true,
+              fillColor: const Color.fromRGBO(220, 220, 220, 1),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          );
+        }
+      }),
+    );
   }
 
   @override
   void initState() {
     super.initState();
 
-    // Setup the listener.
+    // Setup the listener
     _controller.addListener(
       () {
         if (_controller.position.atEdge) {
@@ -84,7 +91,9 @@ class _StoreState extends State<Store> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Main Bar
       appBar: AppBar(
+        key: appBarKey,
         title: dinamicTittle(),
         actions: [
           IconButton(
@@ -106,29 +115,18 @@ class _StoreState extends State<Store> {
       body: CustomScrollView(
         controller: _controller,
         slivers: [
+          //Second App Bar
           SliverAppBar(
-            title: VisibilityDetector(
-              key: sliverAppBarKey,
-              onVisibilityChanged: (info) {
-                if (info.visibleFraction == 0) {
-                  _searchBarIs == false;
-                } else {
-                  setState(() {
-                    _searchBarIs == true;
-                  });
-                }
-              },
-              child: TextFormField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search),
-                  hintText: "Search shops",
-                  contentPadding: const EdgeInsets.all(10),
-                  filled: true,
-                  fillColor: const Color.fromRGBO(220, 220, 220, 1),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+            title: TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.search),
+                hintText: "Search shops",
+                contentPadding: const EdgeInsets.all(10),
+                filled: true,
+                fillColor: const Color.fromRGBO(220, 220, 220, 1),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
@@ -140,13 +138,24 @@ class _StoreState extends State<Store> {
                   minimumSize: const Size(360, 35),
                 ),
                 onPressed: () {},
-                child: const Text(
-                  'Videos',
-                  style: TextStyle(color: Colors.black),
+                child: VisibilityDetector(
+                  key: sliverAppBarKey,
+                  onVisibilityChanged: (info) {
+                    if (info.visibleFraction != 1) {
+                      value.value = false;
+                    } else {
+                      value.value = true;
+                    }
+                  },
+                  child: const Text(
+                    'Videos',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
             ),
           ),
+          // Infinite Grid
           SliverGrid(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
@@ -164,12 +173,6 @@ class _StoreState extends State<Store> {
               childAspectRatio: 1,
             ),
           ),
-          /*Container(
-            height: 100,
-            width: 50,
-            color: Colors.green,
-            child: const Text("data"),
-          ),*/
         ],
       ),
     );

@@ -138,7 +138,6 @@ class _HomePageState extends State<HomePage> {
               const Divider(),
               //Post Section
               Column(
-                //mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ...List.generate(
                     8,

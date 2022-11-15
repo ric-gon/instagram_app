@@ -1,16 +1,18 @@
 # instagram_app
 
-A new Flutter project.
+This project is an UI instagram clone created with Flutter
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+The project just need six files to work.
+[main.dart] Where the project is executed and implements the app's bottom bar.
 
-A few resources to get you started if this is your first Flutter project:
+[home_page.dart] This file contains the first bar view, is estructured by the main app bar, the stories sections and the column post.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[search_page.dart] Second view of the bottom bar, this view has two sections, the top Search bar and the infinite generator.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[reels_page.dart] This file uses a infinite generator and oredered all the information in each corner of the screen.
+
+[store.dart] The shop section is structured by three sections, the main bar, the serach bar with the "videos" button and the infinite grid. The main bar is configured with a listener to move the serach bar in the second section to the main bar.
+
+[profile.dart] The profile screen has five sections, the main bar, the user information, the edit profile button, the discover people and the pictures sections.
